@@ -1,60 +1,43 @@
-var userController = require('./controllers/userController.js');
+// Controlers aki
+// var Controller = require("./Controllers");
+var playgroundController = require("./Controllers/playgroundController.js");
+// get_playground
 var validator = require('validator');
+
 
 module.exports = function (app){
 
     app.get('/', function(req, res) {
-        res.end('Servidor UP!');
+        res.end(playground.get_playground());
     });
-    
-    app.get('/users', function(req, res) {
-    
-        userController.list()
-        .then( (data)=> res.send(data) )
-        .catch((err) => res.send(err) );
+
+    app.get('/playground', function(req, res) {
+        playgroundController.list()
+        .then( (data)=>{
+            res.send(data);
+        }).catch( (err) => {
+            res.send(err);
+        })
+       
+    });
+
+    app.get('/finaceiro', function(req, res) {
 
     });
     
-    app.get('/users/:id', function(req, res) {
+    app.get('/finaceiro/:id', function(req, res) {
     
-        var id = validator.trim(validator.escape(req.param('id')));
-    
-        userController.user(id)
-            .then( (data)=> res.send(data) )
-            .catch( (err) => res.send(err) );
     });
     
-    app.post('/users', function(req, res) {
+    app.post('/finaceiro', function(req, res) {
     
-        var fullname = validator.trim(validator.escape(req.param('fullname')));
-        var email = validator.trim(validator.escape(req.param('email')));
-        var password = validator.trim(validator.escape(req.param('password')));
-    
-        userController.save(fullname, email, password)
-        .then( (data)=> res.send(data) )
-        .catch((err) => res.send(err) );
-
     });
     
-    app.put('/users', function(req, res) {
-    
-        var id = validator.trim(validator.escape(req.param('id')));
-        var fullname = validator.trim(validator.escape(req.param('fullname')));
-        var email = validator.trim(validator.escape(req.param('email')));
-        var password = validator.trim(validator.escape(req.param('password')));
-    
-        userController.update(id, fullname, email, password)
-        .then( (data)=> res.send(data) )
-        .catch((err) => res.send(err) );
+    app.put('/finaceiro', function(req, res) {
+ 
     });
     
-    app.delete('/users/:id', function(req, res) {
-    
-        var id = validator.trim(validator.escape(req.param('id')));
-    
-        userController.delete(id)
-        .then( (data)=> res.send(data) )
-        .catch((err) => res.send(err) );
+    app.delete('/finaceiro/:id', function(req, res) {
     
     });
 

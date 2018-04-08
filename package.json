@@ -1,5 +1,5 @@
 {
-  "name": "Rest_in_node_test",
+  "name": "Restfull_in_node",
   "version": "0.0.1",
   "description": "App base restful",
   "main": "app.js",
@@ -8,11 +8,12 @@
   },
   "keywords": [],
   "author": "William M. da Silva",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "body-parser": "^1.4.3",
     "express": "^4.6.1",
     "mongoose": "~4.4",
+    "pg": "^7.4.1",
     "validator": "^3.16.1"
   }
 }

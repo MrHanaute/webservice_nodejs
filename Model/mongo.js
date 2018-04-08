@@ -1,6 +1,6 @@
-var db_string= 'mongodb://127.0.0.1/screencast_restful';
+var db_connect= 'mongodb://127.0.0.1/nodews';
 
-var mongoose = require('mongoose').connect(db_string);
+var mongoose = require('mongoose').connect(db_connect);
 
 var db = mongoose.connection;
 
